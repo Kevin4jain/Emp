@@ -1,0 +1,36 @@
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <h1 style="color:brown; margin-left: 40%;">Employee Data</h1>
+        <button  mat-raised-button  routerLink="/employees/add" style="color: black ; background-color:greenyellow;">Add Employee</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>emp_name</th>
+                <th>emp_id</th>
+                <th>emp_email</th>
+                <th>emp_phone</th>
+                <th>emp_dept</th>
+                <th>emp_salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody> 
+            @for( e of Employees; track $index) { 
+                <tr>
+                    <td>{{e.emp_name}}</td>
+                    <td>{{e.emp_id}}</td>
+                    <td>{{e.emp_email}}</td>
+                    <td>{{e.emp_phone}}</td>
+                    <td>{{e.emp_dept}}</td>
+                    <td>{{e.emp_salary}}</td>
+                    <td style="display: flex; justify-content: space-between;">
+                        <button mat-raised-button color="primary" [routerLink]="'/employees/edit/'+e._id">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteEmployee(e._id,e.emp_name)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</div>

@@ -1,0 +1,42 @@
+<div>@if (editId) {    <h1 style="text-align: center; color: chocolate; background-color: aquamarine;">Edit Employee</h1>
+}@else{    <h1 style="text-align: center; color: chocolate; background-color: aquamarine;">Add Employee</h1>
+}
+    <form [formGroup]="form">
+        <div style="display: flex;flex-direction: column; margin: 5px; padding: 5px; border: 1px solid #ccc;">
+            <label for="emp_name">Name:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee Name" type="text" formControlName="emp_name">
+            </mat-form-field>
+            <label for="emp_id">ID:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee ID" type="text" formControlName="emp_id" [readonly]="bool"  >
+            </mat-form-field>
+            <label for="emp_email">Email:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee Email" type="email" formControlName="emp_email">
+            </mat-form-field>
+            <label for="emp_phone">Phone:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee Phone" type="tel" formControlName="emp_phone">
+            </mat-form-field>
+            <label for="emp_dept">Department:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee Department" type="text" formControlName="emp_dept">
+            </mat-form-field>   
+            <label for="emp_salary">Salary:-</label>
+            <mat-form-field>
+                <input matInput placeholder="Employee Salary" type="number" formControlName="emp_salary">
+            </mat-form-field>
+            
+        </div>
+        <div style="display: flex; justify-content: space-around;">
+        @if(editId) {
+        <button mat-raised-button style="background-color: green;" (click)="updateemp()" >Update </button>}
+        @else{
+        <button mat-raised-button style="background-color: green;" (click)="addemp()"  >Add </button>}
+        <button mat-raised-button color="primary" (click)="Reset()" >Reset </button>
+        <button mat-raised-button color="warn" (click)="Home()">cancel</button>
+    </div>
+
+    </form>
+</div>
